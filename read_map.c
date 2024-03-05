@@ -6,7 +6,7 @@
 /*   By: younajja <younajja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:26:13 by younajja          #+#    #+#             */
-/*   Updated: 2024/03/02 18:18:03 by younajja         ###   ########.fr       */
+/*   Updated: 2024/03/05 16:59:30 by younajja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ char	**ft_read_map(char *map_name)
 	char	**last_vrs;
 
 	fd = open(map_name, O_RDONLY);
-	if (fd < 0)
-		return (NULL);
+	if (fd == -1)
+		ft_exit_msg("There is no file !");
 	str = get_next_line(fd);
 	res = ft_strdup("");
 	while (str)
@@ -35,7 +35,7 @@ char	**ft_read_map(char *map_name)
 	return (last_vrs);
 }
 
-char	**last_form(char *name_arg)
+char	**last_form(char *name_arg, t_list *game)
 {
 	char	**last;
 
@@ -43,5 +43,8 @@ char	**last_form(char *name_arg)
 	ft_check_shape(last);
 	ft_check_close(last);
 	ft_check_characters(last);
-	return (last);
+	ft_check_path(last);
+	game->map = ft_cpy_strs(last);
+	ft_free(last);
+	return (game->map);
 }

@@ -6,7 +6,7 @@
 /*   By: younajja <younajja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:26:52 by younajja          #+#    #+#             */
-/*   Updated: 2024/03/02 18:43:34 by younajja         ###   ########.fr       */
+/*   Updated: 2024/03/05 16:20:58 by younajja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,21 @@ int	ft_check_close(char **strs)
 	while (i < len)
 	{
 		if ((i == len - 1) || (i == 0))
-			ft_all_is_one(strs[i]);
+		{
+			if (ft_all_is_one(strs[i]) == 1)
+			{
+				ft_free(strs);
+				ft_exit_msg("map is not closed!");
+			}
+		}
 		else
-			ft_check_f_l_one(strs[i]);
+		{
+			if (ft_check_f_l_one(strs[i]) == 1)
+			{
+				ft_free(strs);
+				ft_exit_msg("map is not closed!");
+			}
+		}
 		i++;
 	}
 	return (0);
@@ -40,7 +52,10 @@ int	ft_check_shape(char **strs)
 	while (strs[i])
 	{
 		if (len != ft_strlen(strs[i]))
+		{
+			ft_free(strs);
 			ft_exit_msg("shape of map not valid!");
+		}
 		i++;
 	}
 	return (0);
@@ -93,6 +108,9 @@ int	ft_check_characters(char **strs)
 {
 	if (ft_count_char(strs, 'P') != 1 || ft_count_char(strs, 'E') != 1
 		|| !ft_check_char_valid(strs) || ft_count_char(strs, 'C') < 1)
-		ft_exit_msg("Problem in characters in map!");
+	{
+		ft_free(strs);
+		ft_exit_msg("Problem in characters in map!");	
+	}
 	return (0);
 }

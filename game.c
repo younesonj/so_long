@@ -6,7 +6,7 @@
 /*   By: younajja <younajja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:26:40 by younajja          #+#    #+#             */
-/*   Updated: 2024/03/02 18:22:24 by younajja         ###   ########.fr       */
+/*   Updated: 2024/03/05 17:38:35 by younajja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,17 @@ void	ft_search_p(char **strs, char find, char replace)
 
 int	ft_key_hook(int keycode, t_list *game)
 {
-	char	**strs;
-
-	strs = game->map;
 	if (keycode == 65307)
 	{
-		ft_printf("You pressed \"Esc\"");
+		ft_free(game->map);
+		ft_printf("You've pressed \"Esc\"");
+		ft_free_mlx(game);
 		exit(0);
 	}
 	else if (keycode == 65361)
 	{
 		ft_move_p(game, 'L');
-		ft_search_p(strs, 'P', 'L');
+		ft_search_p(game->map, 'P', 'L');
 	}
 	else if (keycode == 65363)
 		ft_move_p(game, 'R');
@@ -56,15 +55,16 @@ int	ft_key_hook(int keycode, t_list *game)
 	else if (keycode == 65364)
 		ft_move_p(game, 'D');
 	mlx_clear_window(game->mlx_cnx, game->window);
-	ft_draw_map(strs, game);
-	ft_search_p(strs, 'L', 'P');
+	ft_draw_map(game);
+	ft_search_p(game->map, 'L', 'P');;
 	return (0);
 }
 
-int	ft_close_window(void *param)
+int	ft_close_window(t_list *game)
 {
-	(void)param;
 	ft_printf("Window closed!");
+	ft_free(game->map);
+	ft_free_mlx(game);
 	exit(0);
 	return (0);
 }
@@ -102,10 +102,10 @@ int	main(int ac, char **av)
 	if (ft_check_name_map(av[1]))
 		ft_exit_msg("Map name not valid!");
 	game.num_move = 1;
-	game.map = last_form(av[1]);
-	ft_setting_map(av[1], &game);
-	ft_draw_map(game.map, &game);
-	mlx_key_hook(game.window, &ft_key_hook, &game);
-	mlx_hook(game.window, 17, 0, ft_close_window, NULL);
+	last_form(av[1], &game);
+	ft_setting_map(&game);
+	ft_draw_map(&game);
+	mlx_key_hook(game.window, ft_key_hook, &game);
+	mlx_hook(game.window, 17, 0, ft_close_window, &game);
 	mlx_loop(game.mlx_cnx);
 }

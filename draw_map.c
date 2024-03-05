@@ -6,7 +6,7 @@
 /*   By: younajja <younajja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:26:46 by younajja          #+#    #+#             */
-/*   Updated: 2024/03/02 18:22:12 by younajja         ###   ########.fr       */
+/*   Updated: 2024/03/05 17:23:56 by younajja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,29 +45,26 @@ void	ft_draw_map_row(char *row, t_list *game, int y)
 	}
 }
 
-void	ft_draw_map(char **map, t_list *game)
+void	ft_draw_map(t_list *game)
 {
-	int	i;
-	int	y;
+	int		i;
+	int		y;
 
 	i = 0;
 	y = 0;
-	while (map[i])
+	while (game->map[i])
 	{
-		ft_draw_map_row(map[i], game, y);
+		ft_draw_map_row(game->map[i], game, y);
 		i++;
 		y = y + 64;
 	}
 }
 
-void	ft_setting_map(char *str, t_list *game)
+void	ft_setting_map(t_list *game)
 {
-	char	**map;
-
-	map = last_form(str);
 	game->mlx_cnx = mlx_init();
-	game->height = calcul_len(map) * 64;
-	game->width = ft_strlen(map[0]) * 64;
+	game->height = calcul_len(game->map) * 64;
+	game->width = ft_strlen(game->map[0]) * 64;
 	game->window = mlx_new_window(game->mlx_cnx, game->width, game->height,
 			"Map display");
 	game->wall = mlx_xpm_file_to_image(game->mlx_cnx, "xpm/wall.xpm", &game->he,
