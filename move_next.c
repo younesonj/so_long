@@ -6,7 +6,7 @@
 /*   By: younajja <younajja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:26:17 by younajja          #+#    #+#             */
-/*   Updated: 2024/03/05 17:36:21 by younajja         ###   ########.fr       */
+/*   Updated: 2024/03/06 23:34:54 by younajja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,9 @@ int	ft_check_move(t_list *game, char sign, int i, int j)
 		if (ft_move_if_exit(strs, i, j, sign) == 0)
 		{
 			ft_free(game->map);
+			ft_free_image(game);
 			ft_free_mlx(game);
-			ft_printf("FINIIITOO\n");
+			ft_printf("congratulating you've won in %d moves\n", game->num_move - 1);
 			exit(0);
 		}
 		return (0);

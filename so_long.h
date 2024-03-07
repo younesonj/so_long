@@ -6,7 +6,7 @@
 /*   By: younajja <younajja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:26:03 by younajja          #+#    #+#             */
-/*   Updated: 2024/03/05 17:33:08 by younajja         ###   ########.fr       */
+/*   Updated: 2024/03/07 00:52:31 by younajja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,14 @@ void		ft_check_path(char	**strs);
 void		ft_free(char **strs);
 char		**ft_cpy_strs(char **strs);
 void		ft_free_mlx(t_list *game);
+void		ft_free_image(t_list *game);
+void		ft_free_mlx_and_images(t_list *game);
+void		ft_wall_fail(t_list *game);
+void		ft_player_fail(t_list *game);
+void		ft_player_left_fail(t_list *game);
+void		ft_empty_fail(t_list *game);
+void		ft_coin_fail(t_list *game);
+void		ft_exit_fail(t_list *game);
+
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: younajja <younajja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:26:40 by younajja          #+#    #+#             */
-/*   Updated: 2024/03/05 17:38:35 by younajja         ###   ########.fr       */
+/*   Updated: 2024/03/07 00:18:20 by younajja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,20 @@ int	ft_key_hook(int keycode, t_list *game)
 	{
 		ft_free(game->map);
 		ft_printf("You've pressed \"Esc\"");
+		ft_free_image(game);
 		ft_free_mlx(game);
 		exit(0);
 	}
-	else if (keycode == 65361)
+	else if (keycode == 97)//65361
 	{
 		ft_move_p(game, 'L');
 		ft_search_p(game->map, 'P', 'L');
 	}
-	else if (keycode == 65363)
+	else if (keycode == 100)//65363
 		ft_move_p(game, 'R');
-	else if (keycode == 65362)
+	else if (keycode == 119)//65362
 		ft_move_p(game, 'U');
-	else if (keycode == 65364)
+	else if (keycode == 115)//65364
 		ft_move_p(game, 'D');
 	mlx_clear_window(game->mlx_cnx, game->window);
 	ft_draw_map(game);
@@ -64,6 +65,7 @@ int	ft_close_window(t_list *game)
 {
 	ft_printf("Window closed!");
 	ft_free(game->map);
+	ft_free_image(game);
 	ft_free_mlx(game);
 	exit(0);
 	return (0);

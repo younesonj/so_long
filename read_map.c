@@ -6,7 +6,7 @@
 /*   By: younajja <younajja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:26:13 by younajja          #+#    #+#             */
-/*   Updated: 2024/03/05 16:59:30 by younajja         ###   ########.fr       */
+/*   Updated: 2024/03/07 01:27:57 by younajja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ char	**ft_read_map(char *map_name)
 	if (fd == -1)
 		ft_exit_msg("There is no file !");
 	str = get_next_line(fd);
+	if (!str)
+	{
+		ft_exit_msg("NO MAP!");
+	}
 	res = ft_strdup("");
 	while (str)
 	{

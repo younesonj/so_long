@@ -6,7 +6,7 @@
 /*   By: younajja <younajja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:26:46 by younajja          #+#    #+#             */
-/*   Updated: 2024/03/05 17:23:56 by younajja         ###   ########.fr       */
+/*   Updated: 2024/03/07 01:15:50 by younajja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,23 +60,34 @@ void	ft_draw_map(t_list *game)
 	}
 }
 
+void	ft_setting_images(t_list *game)
+{
+	game->wall = mlx_xpm_file_to_image(game->mlx_cnx, "xpm/wall.xpm", &game->he,
+			&game->wd);
+	ft_wall_fail(game);
+	game->player = mlx_xpm_file_to_image(game->mlx_cnx, "xpm/player.xpm",
+			&game->he, &game->wd);
+	ft_player_fail(game);
+	game->player_left = mlx_xpm_file_to_image(game->mlx_cnx,
+			"xpm/player_left.xpm", &game->he, &game->wd);
+	ft_player_left_fail(game);
+	game->empty = mlx_xpm_file_to_image(game->mlx_cnx, "xpm/empty.xpm",
+			&game->he, &game->wd);
+	ft_empty_fail(game);
+	game->coin = mlx_xpm_file_to_image(game->mlx_cnx, "xpm/coin.xpm", &game->he,
+			&game->wd);
+	ft_coin_fail(game);
+	game->exit = mlx_xpm_file_to_image(game->mlx_cnx, "xpm/exit.xpm", &game->he,
+			&game->wd);
+	ft_exit_fail(game);
+}
+
 void	ft_setting_map(t_list *game)
 {
 	game->mlx_cnx = mlx_init();
 	game->height = calcul_len(game->map) * 64;
 	game->width = ft_strlen(game->map[0]) * 64;
+	ft_setting_images(game);
 	game->window = mlx_new_window(game->mlx_cnx, game->width, game->height,
 			"Map display");
-	game->wall = mlx_xpm_file_to_image(game->mlx_cnx, "xpm/wall.xpm", &game->he,
-			&game->wd);
-	game->player = mlx_xpm_file_to_image(game->mlx_cnx, "xpm/player.xpm",
-			&game->he, &game->wd);
-	game->player_left = mlx_xpm_file_to_image(game->mlx_cnx,
-			"xpm/player_left.xpm", &game->he, &game->wd);
-	game->empty = mlx_xpm_file_to_image(game->mlx_cnx, "xpm/empty.xpm",
-			&game->he, &game->wd);
-	game->coin = mlx_xpm_file_to_image(game->mlx_cnx, "xpm/coin.xpm", &game->he,
-			&game->wd);
-	game->exit = mlx_xpm_file_to_image(game->mlx_cnx, "xpm/exit.xpm", &game->he,
-			&game->wd);
 }
