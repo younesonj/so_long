@@ -6,7 +6,7 @@
 /*   By: younajja <younajja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:00:31 by younajja          #+#    #+#             */
-/*   Updated: 2024/03/07 02:44:33 by younajja         ###   ########.fr       */
+/*   Updated: 2024/03/08 00:46:07 by younajja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_judge(char **map)
 		{
 			if (map[i][j] == 'C' || (map[i][j] == 'E' && map[i - 1][j] != 'V'
 					&& map[i + 1][j] != 'V' && map[i][j - 1] != 'V'
-					&& map[i][j] != 'V'))
+					&& map[i][j + 1] != 'V'))
 				return (1);
 			j++;
 		}
