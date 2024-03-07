@@ -6,7 +6,7 @@
 /*   By: younajja <younajja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:26:03 by younajja          #+#    #+#             */
-/*   Updated: 2024/03/07 00:52:31 by younajja         ###   ########.fr       */
+/*   Updated: 2024/03/07 02:33:45 by younajja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@
 # include "gnl/get_next_line.h"
 # include "printf/ft_printf.h"
 # include <mlx.h>
-# include <stdio.h>
 
 typedef struct t_list
 {
-	//char	**map1;
 	char	**map;
 	void	*mlx_cnx;
 	void	*window;
@@ -38,7 +36,6 @@ typedef struct t_list
 }			t_list;
 
 size_t		ft_strlen(const char *str);
-// static char	*ft_strcpy(char *dest, const char *src);
 char		*ft_strdup(const char *src);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		**ft_split(char const *s, char c);
@@ -56,7 +53,7 @@ int			ft_check_f_l_one(char *str);
 void		ft_swap(char *a, char *b);
 int			ft_check_if_c_expired(char **strs);
 void		ft_position_of_player(int *x, int *y, char **map);
-void		ft_check_path(char	**strs);
+void		ft_check_path(char **strs);
 void		ft_free(char **strs);
 char		**ft_cpy_strs(char **strs);
 void		ft_free_mlx(t_list *game);
@@ -68,6 +65,7 @@ void		ft_player_left_fail(t_list *game);
 void		ft_empty_fail(t_list *game);
 void		ft_coin_fail(t_list *game);
 void		ft_exit_fail(t_list *game);
-
+void		ft_check_space(char *str);
+void		ft_free_and_exit(char **strs);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: younajja <younajja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:26:13 by younajja          #+#    #+#             */
-/*   Updated: 2024/03/07 01:27:57 by younajja         ###   ########.fr       */
+/*   Updated: 2024/03/07 02:08:48 by younajja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ char	**ft_read_map(char *map_name)
 		free(str);
 		str = get_next_line(fd);
 	}
+	ft_check_space(res);
 	last_vrs = ft_split(res, '\n');
 	free(res);
 	return (last_vrs);

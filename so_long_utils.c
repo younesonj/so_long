@@ -6,7 +6,7 @@
 /*   By: younajja <younajja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:25:39 by younajja          #+#    #+#             */
-/*   Updated: 2024/03/05 16:21:03 by younajja         ###   ########.fr       */
+/*   Updated: 2024/03/07 02:33:29 by younajja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_exit_msg(char *str)
 {
-	printf("Error!\n%s", str);
+	ft_printf("Error!\n%s", str);
 	exit(1);
 }
 

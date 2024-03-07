@@ -6,7 +6,7 @@
 /*   By: younajja <younajja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:26:52 by younajja          #+#    #+#             */
-/*   Updated: 2024/03/05 16:20:58 by younajja         ###   ########.fr       */
+/*   Updated: 2024/03/07 02:31:03 by younajja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,12 @@ int	ft_check_close(char **strs)
 		if ((i == len - 1) || (i == 0))
 		{
 			if (ft_all_is_one(strs[i]) == 1)
-			{
-				ft_free(strs);
-				ft_exit_msg("map is not closed!");
-			}
+				ft_free_and_exit(strs);
 		}
 		else
 		{
 			if (ft_check_f_l_one(strs[i]) == 1)
-			{
-				ft_free(strs);
-				ft_exit_msg("map is not closed!");
-			}
+				ft_free_and_exit(strs);
 		}
 		i++;
 	}
@@ -110,7 +104,7 @@ int	ft_check_characters(char **strs)
 		|| !ft_check_char_valid(strs) || ft_count_char(strs, 'C') < 1)
 	{
 		ft_free(strs);
-		ft_exit_msg("Problem in characters in map!");	
+		ft_exit_msg("Problem in characters in map!");
 	}
 	return (0);
 }

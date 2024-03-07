@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: younajja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: younajja <younajja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 21:20:17 by younajja          #+#    #+#             */
-/*   Updated: 2023/12/12 21:20:44 by younajja         ###   ########.fr       */
+/*   Updated: 2024/03/07 02:33:50 by younajja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stddef.h>
-# include <stdio.h>
 # include <unistd.h>
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1000

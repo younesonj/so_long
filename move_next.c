@@ -97,7 +97,8 @@ int	ft_check_move(t_list *game, char sign, int i, int j)
 			ft_free(game->map);
 			ft_free_image(game);
 			ft_free_mlx(game);
-			ft_printf("congratulating you've won in %d moves\n", game->num_move - 1);
+			ft_printf("congratulating you've won in %d moves\n", game->num_move
+				- 1);
 			exit(0);
 		}
 		return (0);
