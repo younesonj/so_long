@@ -6,7 +6,7 @@
 /*   By: younajja <younajja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:00:31 by younajja          #+#    #+#             */
-/*   Updated: 2024/03/06 11:48:10 by younajja         ###   ########.fr       */
+/*   Updated: 2024/03/07 02:44:33 by younajja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	ft_check_path(char **strs)
 	{
 		ft_free(strs);
 		ft_free(map);
-		ft_exit_msg("flood fill akhaay");
+		ft_exit_msg("The path of the game is illogical!");
 	}
 	ft_free(map);
 }
